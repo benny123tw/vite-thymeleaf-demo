@@ -33,7 +33,7 @@ public class ViteImportTagProcessor extends AbstractElementTagProcessor {
             final ITemplateContext context, final IProcessableElementTag tag,
             final IElementTagStructureHandler structureHandler) {
 
-        String entry = tag.getAttributeValue("vite:entry");
+        String entry = tag.getAttributeValue("entry");
 
         boolean isDebug = viteProperties.isDebug();
         String manifestPath = viteProperties.getManifestPath();
