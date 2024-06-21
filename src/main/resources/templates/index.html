@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:vite="http://www.w3.org/1999/xhtml"
+      lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" th:href="@{logo.svg}">
+  <title>Thymeleaf with Vite</title>
+  <vite:import vite:entry="src/main.ts"/>
+</head>
+<body>
+<div id="app"></div>
+<form action="#" th:action="@{/greeting}" th:object="${greetingForm}" method="post">
+  <h3>Greeting to?</h3>
+  <ul>
+    <li th:each="name : ${names}">
+      <label th:for="${#ids.next('name')}"
+             th:text="${name}">Name
+      </label>
+      <input type="checkbox" th:field="*{name}" th:value="${name}" />
+    </li>
+  </ul>
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>
