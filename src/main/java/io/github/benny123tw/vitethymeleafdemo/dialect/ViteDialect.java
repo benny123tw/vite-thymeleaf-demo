@@ -1,5 +1,6 @@
 package io.github.benny123tw.vitethymeleafdemo.dialect;
 
+import io.github.benny123tw.vitethymeleafdemo.processor.ViteEntryAttributeProcessor;
 import io.github.benny123tw.vitethymeleafdemo.processor.ViteImportTagProcessor;
 import org.springframework.context.ApplicationContext;
 import org.thymeleaf.dialect.AbstractProcessorDialect;
@@ -21,6 +22,7 @@ public class ViteDialect extends AbstractProcessorDialect {
     public Set<IProcessor> getProcessors(String dialectPrefix) {
         final Set<IProcessor> processors = new HashSet<>();
         processors.add(new ViteImportTagProcessor(dialectPrefix, applicationContext));
+        processors.add(new ViteEntryAttributeProcessor(dialectPrefix, applicationContext));
         return processors;
     }
 }
